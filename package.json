@@ -1,0 +1,69 @@
+{
+  "name": "wip-astro-template",
+  "type": "module",
+  "version": "0.0.1",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "prettier": "prettier . --write",
+    "stylelint": "stylelint \"src/**/*.{css,scss,astro}\" --fix -f verbose",
+    "eslint": "DEBUG=eslint:eslint eslint . --fix",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.7.0",
+    "@astrojs/sitemap": "^3.1.6",
+    "astro": "^4.13.1",
+    "astro-purgecss": "^4.3.0",
+    "astro-relative-links": "^0.4.0",
+    "astro-seo": "^0.8.4",
+    "purgecss": "^6.0.0",
+    "sass": "^1.77.6",
+    "the-new-css-reset": "^1.11.2",
+    "typescript": "^5.5.3"
+  },
+  "devDependencies": {
+    "@eslint/compat": "^1.1.1",
+    "@playform/compress": "^0.0.9",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.8.0",
+    "eslint-plugin-astro": "^1.2.3",
+    "globals": "^15.9.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.7",
+    "postcss-html": "^1.7.0",
+    "prettier": "^3.3.2",
+    "prettier-plugin-astro": "^0.14.0",
+    "stylelint": "^16.6.1",
+    "stylelint-config-html": "^1.1.0",
+    "stylelint-config-recess-order": "^5.0.1",
+    "stylelint-config-standard": "^36.0.1",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "typescript-eslint": "^8.0.1"
+  },
+  "lint-staged": {
+    "*.{css,scss}": [
+      "stylelint \"src/**/*.{css,scss,astro}\" --fix",
+      "prettier . --write",
+      "astro check"
+    ],
+    "*.{js,ts}": [
+      "eslint . --fix",
+      "prettier . --write",
+      "astro check"
+    ],
+    "*.astro": [
+      "stylelint \"src/**/*.{css,scss,astro}\" --fix",
+      "eslint . --fix",
+      "prettier . --write",
+      "astro check"
+    ],
+    "*.{md,json}": [
+      "prettier --write"
+    ]
+  }
+}

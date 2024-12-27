@@ -1,0 +1,69 @@
+---
+import 'the-new-css-reset/css/reset.css'
+import '@/styles/variables.scss'
+import '@/styles/global.scss'
+import '@/styles/utils.scss'
+import { SEO } from 'astro-seo'
+import ClarityScript from '@/components/layout/ClarityScript.astro'
+import GtmNoScript from '@/components/layout/GtmNoScript.astro'
+import GtmScript from '@/components/layout/GtmScript.astro'
+import Footer from '@/components/layout/Footer.astro'
+import Header from '@/components/layout/Header.astro'
+
+type Props = {
+  title?: string
+  description?: string
+}
+
+const { title = 'TEMPLATE SITE', description = 'デザインセンターで利用する実装環境の実装テンプレートを利用しよう。' } = Astro.props
+---
+
+<html lang="ja">
+  <head>
+    <GtmScript />
+    <ClarityScript />
+
+    <SEO
+      charset="utf-8"
+      title={title}
+      description={description}
+      openGraph={{
+        basic: {
+          title,
+          type: 'website',
+          image: `http://example.com/ogp.jpg`
+        }
+      }}
+      extend={{
+        link: [
+          { rel: 'icon', href: `./favicon.jpg` },
+          { rel: 'apple-touch-icon', href: `./apple-touch-icon.jpg` }
+        ],
+        meta: [{ name: 'viewport', content: 'width=device-width,maximum-scale=1.0' }]
+      }}
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Quicksand:wght@700&family=Zen+Maru+Gothic:wght@900&display=swap" rel="stylesheet" />
+  </head>
+
+  <body>
+    <GtmNoScript />
+    <div data-relative-base-path="."></div>
+    <div class="wrapper">
+      <Header />
+      <slot />
+      <Footer />
+    </div>
+  </body>
+</html>
+
+<style lang="scss">
+  .wrapper {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%;
+    min-height: 100%;
+  }
+</style>

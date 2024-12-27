@@ -1,0 +1,58 @@
+---
+import IconArrow from '@/components/icons/IconArrow.astro'
+import type { HTMLAttributes } from 'astro/types'
+
+type Props = Pick<HTMLAttributes<'a'>, 'href' | 'target'>
+
+const { href, target } = Astro.props
+---
+
+<a href={href} target={target} class="wrapper">
+  <div class="heading">
+    <div class="heading-text"><slot name="title" /></div>
+    <IconArrow type="right" width={24} height={24} class="heading-icon" />
+  </div>
+  <div class="content">
+    <slot name="content" />
+  </div>
+</a>
+
+<style lang="scss">
+  .wrapper {
+    display: block;
+    padding: 24px;
+    background-color: #fafafa;
+    border: 1px solid #dfdfdf;
+    border-radius: 8px;
+
+    &:hover {
+      box-shadow: 0 0 8px 0 #1b1b1b26;
+    }
+  }
+
+  .heading {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #dfdfdf;
+  }
+
+  .heading-text {
+    font-family: Quicksand, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+  }
+
+  .heading-icon {
+    color: #4ba1f2;
+  }
+
+  .content {
+    padding-top: 16px;
+    color: #666;
+  }
+</style>

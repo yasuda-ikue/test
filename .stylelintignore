@@ -1,0 +1,8 @@
+# source
+*.js
+*.jsx
+*.ts
+*.tsx
+
+# build
+out/

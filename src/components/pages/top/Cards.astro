@@ -1,0 +1,74 @@
+---
+import CardsItem from '@/components/pages/top/CardsItem.astro'
+import type { ComponentProps } from 'astro/types'
+
+const REFERENCE_LIST: (ComponentProps<typeof CardsItem> & { title: string; content: string | string[] })[] = [
+  {
+    href: 'https://github.com/dwango-design/wip-astro-template',
+    target: '_blank',
+    title: 'Open theTemplate in github',
+    content: ['githubでテンプレデータを確認できます。', 'このテンプレのデータになります。テンプレデータは直接編集せず、テンプレートとして呼び出してご利用ください。']
+  },
+  {
+    href: 'https://github.com/dwango-design/wip-astro-template-sample',
+    target: '_blank',
+    title: 'Open the Sample in github',
+    content: ['githubでサンプルページを確認できます。', '枠ツクールやmicroCMSなど、この実装環境で利用が想定されている実装のサンプルを確認することができます。']
+  },
+  {
+    href: '',
+    target: '_blank',
+    title: 'Check the Sample TKTK',
+    content: ['サンプルページの特設管理ツールの内容を確認できます。', '特設ツクールの管理画面よりAPI設定の内容を変更し保存するとサンプルページにもすぐに反映されます。']
+  },
+  {
+    href: 'https://manage.wktk.nicovideo.jp/frames/4456/items',
+    target: '_blank',
+    title: 'Check the Sample WKTK',
+    content: ['サンプルページで利用の枠ツクールの設定を確認できます。', '枠ツクールの管理画面では設定を変更可能です。またアイテムの追加・削除も行うことができます。']
+  },
+  {
+    href: 'https://dc-dev-test.microcms.io/',
+    target: '_blank',
+    title: 'Check the Sample microCMS',
+    content: ['サンプルページのmicroCMSの設定を確認できます。', 'microCMSのサイトよりサンプルの設定を確認できます。サンプルでは動的と静的の両方の呼び出しを行っています。']
+  },
+  {
+    href: 'https://atl.dwango.co.jp/confluence/pages/viewpage.action?pageId=457638324',
+    target: '_blank',
+    title: 'Please read the Confluence',
+    content: ['Astroの実装環境についてはコンフルにまとめています。', 'テンプレ及びサンプルのページの実装内容について記載しておりますので本環境を利用の際はご一読ください。']
+  }
+]
+---
+
+<div class="wrapper">
+  {
+    REFERENCE_LIST.map(({ title, content, ...props }) => (
+      <CardsItem {...props}>
+        <Fragment slot="title">{title}</Fragment>
+        <Fragment slot="content">{Array.isArray(content) ? content.map((item) => <span class="block">{item}</span>) : content}</Fragment>
+      </CardsItem>
+    ))
+  }
+</div>
+
+<style lang="scss">
+  .wrapper {
+    display: grid;
+    gap: 16px;
+    padding: 32px 0;
+
+    @include mq(tab) {
+      padding: 48px 0;
+    }
+
+    @include mq(pc) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .block {
+    display: block;
+  }
+</style>

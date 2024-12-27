@@ -1,0 +1,33 @@
+---
+import Cards from '@/components/pages/top/Cards.astro'
+import Lead from '@/components/pages/top/Lead.astro'
+import Layout from '@/layouts/Layout.astro'
+---
+
+<Layout>
+  <main class="wrapper">
+    <div class="inner">
+      <Lead />
+      <Cards />
+    </div>
+  </main>
+</Layout>
+
+<style lang="scss">
+  .wrapper {
+    padding: 0 16px;
+  }
+
+  .inner {
+    max-width: 480px;
+    margin: 0 auto;
+
+    @include mq(tab) {
+      max-width: 640px;
+    }
+
+    @include mq(pc) {
+      max-width: 1120px;
+    }
+  }
+</style>

@@ -1,0 +1,45 @@
+---
+import LeadingTitle from '@/components/pages/top/LeadTitle.astro'
+---
+
+<div class="wrapper">
+  <LeadingTitle>
+    <Fragment slot="title">実装テンプレートを利用しよう</Fragment>
+    <p slot="text">ASTRO<br class="sp-and-tab" /> TEMPLATE SITE</p>
+  </LeadingTitle>
+  <div class="text">
+    <p>astroを利用したテンプレートデータになります。</p>
+    <p>実装例をまとめたサンプルデータも<br class="sp-only" />合わせてご確認ください。</p>
+  </div>
+</div>
+
+<style lang="scss">
+  .wrapper {
+    display: grid;
+    gap: 32px;
+    padding: 32px 0;
+
+    @include mq(tab) {
+      padding: 48px 0;
+    }
+  }
+
+  .text {
+    display: grid;
+    gap: 8px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .sp-only {
+    @include mq(tab) {
+      display: none;
+    }
+  }
+
+  .sp-and-tab {
+    @include mq(pc) {
+      display: none;
+    }
+  }
+</style>

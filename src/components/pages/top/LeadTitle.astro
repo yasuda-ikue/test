@@ -1,0 +1,32 @@
+<div class="wrapper">
+  <h1 class="heading"><slot name="title" /></h1>
+  <div class="text"><slot name="text" /></div>
+</div>
+
+<style lang="scss">
+  .wrapper {
+    display: grid;
+    gap: 8px;
+    place-items: center;
+    text-align: center;
+  }
+
+  .heading {
+    font-family: 'Zen Maru Gothic', serif;
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+  }
+
+  .text {
+    font-family: Quicksand, sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+
+    @include mq(tab) {
+      font-size: 56px;
+    }
+  }
+</style>

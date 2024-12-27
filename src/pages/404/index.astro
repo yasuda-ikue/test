@@ -1,0 +1,32 @@
+---
+// TODO: 404ページの作成
+import Layout from '@/layouts/Layout.astro'
+---
+
+<Layout>
+  <main class="wrapper">
+    <div class="inner">
+      <p>アクセスしようとしたページは変更されたか、現在利用できない可能性があります。</p>
+      <p>お手数ですが、トップページよりお探しください。</p>
+    </div>
+  </main>
+</Layout>
+
+<style lang="scss">
+  .wrapper {
+    padding: 0 16px;
+  }
+
+  .inner {
+    max-width: 480px;
+    margin: 0 auto;
+
+    @include mq(tab) {
+      max-width: 640px;
+    }
+
+    @include mq(pc) {
+      max-width: 1120px;
+    }
+  }
+</style>

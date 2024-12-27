@@ -1,0 +1,45 @@
+<footer class="wrapper">
+  <div class="inner">
+    <p class="heading">TEMPLATE SITE</p>
+    <p class="copyright">Copyright © design center, Inc. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<style lang="scss">
+  .wrapper {
+    padding: 32px 16px;
+    color: #888;
+    background-color: #fafafa;
+    border-top: 1px solid #dfdfdf;
+
+    @include mq(tab) {
+      padding: 48px 10px;
+    }
+  }
+
+  .inner {
+    max-width: 480px;
+    margin: 0 auto;
+
+    @include mq(tab) {
+      max-width: 640px;
+    }
+
+    @include mq(pc) {
+      max-width: 1120px;
+    }
+  }
+
+  .heading {
+    font-family: Quicksand, sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+  }
+
+  .copyright {
+    margin-top: 16px;
+    font-size: 11px;
+  }
+</style>
